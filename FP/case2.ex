@@ -1,12 +1,13 @@
 defmodule Drop do
   def fall_velocity(planemo, distance) do
+    import :math, only: [sqrt: 1]
     gravity = case planemo do
       :earth -> 9.8
       :moon -> 1.6
       :mars -> 3.71
     end
 
-    velocity = :math.sqrt(2 * gravity * distance)
+    velocity = sqrt(2 * gravity * distance)
 
     cond do
       velocity == 0 -> :stable
